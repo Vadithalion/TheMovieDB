@@ -1,0 +1,11 @@
+.grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.row {
+    padding: 100px;
+}
+section{
+    padding: 30px;
+}

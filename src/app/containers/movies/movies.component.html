@@ -1,0 +1,19 @@
+<mat-form-field class="search">
+	<mat-label>Busca tu pelicula</mat-label>
+	<input matInput #message maxlength="256"  type="text" [(ngModel)]="name">
+	<mat-hint align="start"><strong>introduzca su búsqueda</strong> </mat-hint>
+	<mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+</mat-form-field>
+<button> <a [routerLink]="'/movies/' + name">Buscar</a> </button>
+
+<main >
+    <div class="grid" appSliderItem *ngFor="let pelicula of peliculas">
+        <mat-card class="example-card">
+            <mat-card-header>
+                <mat-card-title>{{ pelicula.original_title }}</mat-card-title>
+            </mat-card-header>
+            <img [src]= "getImage(pelicula)" alt="" [routerLink]="'/detalles/' + pelicula.id">
+        </mat-card>
+    </div>
+</main>
+

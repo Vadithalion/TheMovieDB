@@ -1,0 +1,43 @@
+
+<section>
+<img id="head" src="./../../../assets/peliculas.png" alt="">
+</section>
+
+<mat-form-field class="search">
+	<mat-label>Busca tu pelicula</mat-label>
+	<input matInput #message maxlength="256"  type="text" [(ngModel)]="name">
+	<mat-hint align="start"><strong>introduzca su búsqueda</strong> </mat-hint>
+	<mat-hint align="end">{{message.value.length}} / 256</mat-hint>
+</mat-form-field>
+<button> <a [routerLink]="'/movies/' + name">Buscar</a> </button>
+
+
+
+<section>
+	<img id="head" src="./../../../assets/estrenos.png" alt="">
+</section>
+	
+<app-slider>
+    <div appSliderItem *ngFor="let pelicula of peliculasEs | slice:0:10">
+		<mat-card class="example-card">
+			<mat-card-header>
+				<mat-card-title>{{ pelicula.original_title | slice:0:15}}</mat-card-title>
+			</mat-card-header>
+			<img mat-card-image [src]= "getImage(pelicula)" alt="" [routerLink]="'/detalles/' + pelicula.id">
+    	</mat-card>
+  	</div>
+</app-slider>
+
+<section>
+	<img id="head" src="./../../../assets/populares.png" alt="">
+</section>
+<app-slider>
+    <div appSliderItem *ngFor="let pelicula of peliculasPop | slice:0:10">
+		<mat-card class="example-card">
+			<mat-card-header>
+				<mat-card-title>{{ pelicula.original_title  | slice:0:20}}</mat-card-title>
+			</mat-card-header>
+			<img mat-card-image [src]= "getImage(pelicula)" alt="" [routerLink]="'/detalles/' + pelicula.id">
+    </mat-card>
+  </div>
+</app-slider>

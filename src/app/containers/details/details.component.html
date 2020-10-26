@@ -1,0 +1,94 @@
+<section>
+    <img id="head" src="./../../../assets/detalles.png" alt="">
+</section>
+
+<section>
+    <div class="row">
+        <div class="col-4 ">
+            <h1> {{ detalle.original_title }} </h1>
+            <img [src]= "getImage(detalle)" alt="">
+        </div>
+
+        <div class="col-8">
+            <p> ID: {{ detalle.id }} </p>
+            <p> Votacion: {{ detalle.vote_average }} </p>
+            <p> {{ detalle.overview }} </p>
+            <p> {{ detalle.release_date | date:"dd/MM/yy" }} </p>
+            <div *ngIf="detalle.homepage">
+                <a href="{{ detalle.homepage}}" target="_blank">Web pelicula</a>
+    
+            </div>
+            <p><strong>Generos</strong></p>
+            <div *ngFor="let genre of genres | slice:0:4"> 
+                <p> {{ genre.name }} </p>
+            </div>  
+            <p><strong>Productoras</strong></p>
+            <div *ngFor="let companie of companies | slice:0:2"> 
+                <p> {{ companie.name }} </p>
+            </div> 
+            
+            <a href="{{video}}" target="_blank"><img src="./../../../assets/youtube.png" alt="" style="width: 10vw; height: 15vh;"></a>
+            <p>Ver trailer</p>
+            
+            
+            <div *ngIf="detalle.belongs_to_collection">
+                <p>{{ detalle.belongs_to_collection.name}}</p>
+                <img [src]= "getImage(detalle)" alt="">
+            </div>
+        </div>
+    </div>
+        
+
+    <div>
+        <section>
+            <img id="head" src="./../../../assets/casting.png" alt="">
+        </section>
+    
+    <mat-card-title-group>
+        <div class="grid">
+            <div *ngFor="let actor of actores | slice:0:8"> 
+                <mat-card-title> {{ actor.name }} </mat-card-title>
+                <h2> {{ actor.character }} </h2>
+                <img [src]= "getImage3(actor)" style="width: 30vh" alt="" [routerLink]="'/detalles/' + actor.id">
+            </div>
+        </div>
+    </mat-card-title-group>
+    </div>
+     
+
+    <div>
+        <section>
+            <img id="head" src="./../../../assets/recomendadas.png" alt="">
+        </section>
+            <div class="grid">
+            <div *ngFor="let recommend of recommended | slice:0:4"> 
+                <h2> {{ recommend.title }} </h2>
+                <img [src]= "getImage2(recommend)" style="width: 30vh" alt="" [routerLink]="'/detalles/' + recommend.id">
+            </div>
+        </div>  
+    </div>
+
+
+    <div>
+        <section>
+            <img id="head" src="./../../../assets/similares.png" alt="">
+        </section>
+        <div class="grid">
+            <div *ngFor="let recommend of similars | slice:0:4"> 
+                <p> {{ recommend.title }} </p>
+                <img [src]= "getImage2(recommend)" style="width: 30vh" alt="" [routerLink]="'/detalles/' + recommend.id">
+            </div>
+        </div>
+    </div>
+      
+
+
+
+
+
+
+
+    
+
+    
+</section>
