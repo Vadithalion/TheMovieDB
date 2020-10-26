@@ -15,7 +15,7 @@ ejecuta este comando tras la descarga o clonación para que el proyecto funcione
 
 ---
 
-* [Abrir el proyecto](http://localhost:4200/) como la URL en el navegador que utilices
+* [Click aqui, para abrir el proyecto](http://localhost:4200/).O pon la URL: http://localhost:4200/ en el navegador que utilices
  
 * Se dispone de un buscador de películas
 Búsqueda por título (exacto aunque no necesariamente completo)
